@@ -1,0 +1,107 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+%===========================%
+NETWORK ANALYSIS 217 
+\subsection{MINIMUM-SPAN PROBLEMS} A minimum-span problem involves a set or nodes and a set of proposed branches, none of them oriented. Each proposed branch has a non-negative cost associated with it. The objective is to construct a connected network that contains all the nodes and is such that the sum of the costs associated with those branches actually used is a minimum. We shall suppose that there are enough proposed branches to MUM the existence of a solution. 
+
+It is not hard to see that a minimum-span problem is always solved by a tree. (If two nodes in a connected network are joined by two paths, one of these paths must contain a branch whose removal does not disconnect the network Removing such a branch can only lower the total cost .) 
+
+A minimal spanning tree may be found by initially selecting any one node and determining which branch incident on the selected node has the smallest cost This branch is accepted as part of the final network. The network is then completed iteratively. 
+
+At each stage of the iterative process, attention is focused on those nodes already linked together. All branches linking these nodes to unconnected nodes are considered, and the cheapest such brands identified. Ties are broken arbitrarily. This branch is accepted as part of the final network. 
+
+The iterative process terminates when all nodes have been linked. (Sec Problems 13.1 and 13.24 If the costs are all distinct (this can always be brought about by infinitesimal changes). it can be proved that the minimal spanning tree h unique and is produced by the abuse algorithm for any choice of the starting node. 
+
+%========================================================%
+\subsection{SHORTEST-ROUTE PROBLEMS} A shortest-route problem in' olves a connected network having a nonnegative cost associated with each branch. One node is designated as the source, and another node is designated as the sink_ (These terms do not here imply an orientation of the branches of the network; they merely suggest the direction in which the solution algorithm will be appliedit 
+
+The objective is to determine p path joining the source iind the sink such that the sum of the costs asssociated with the branches in the path is a minimum, Cheapest-path problems are soloed by the following algorithm. in the application of which all ties are to be broken tirbitranly. 
+\begin{description}
+\item[STEP 1.] Construct J master list by tabulating under meli node, in ascending order of cost, the branches incident on it. Each branch under u given node is written with that node as its first node. Omit from the list any branch having the source as its second node or having the sink as its first node. 
+
+\item[STEP 2.] Star the source and assign it the value Q. Locate the cheapest branch incident on the source and circle it. Star the second node of this branch and assign this node a value equal to the cosi of the hmiteli. Delete from the master list all other branches that have the newly starred node as second node. 
+
+\item[STEP 3.] If the newly starred node is the sink. go to Step 5. If not go to Step 4. 
+
+\item[STEP 4.] Consider an starred nodes having unenvied branches under them in the current master list. For each one, add the value assigned to the node to the cost of the cheapest tifiCireled branch under it. Denote the smallest of these sums as M. and circle that branch whose cost contributed to M. Star the second node of this branch and assign tt the value M. Delete from the master list all other branches having this newly starred node as second node. Go to Step 3. 
+
+\item[STEP 5.] : is the value assigned to the sink. A minimum-cost path is obtained recursively. beginning with the sink, by including in the path each circled branch whose second node belongs to the path, (See Problems 13.3 and 1144 From the operation of Step 4 we can see that the set of circled branches produced by the algorithm constitutes a sub-tree of the original network, having the property that the unique distance (cost) in the subtree between the source and another node is equal to the shortest 
+distance between these two nodes in the original network In general. however, the subs ret will not span the network. 
+\end{description}
+%218 NETWORK ANALYSIS [CHAP 13 
+\subsection{MAXIMAL,FLOW PROBLEMS} The objective in a maximal-0ov problem is to develop a shipping schedule that maximizes the amount of material sent between two points. The point of origin is called the source; i destination is called the sink Various shipping lanes exist which time the source and sink directly or intermediate 1001LIMicalictijuncifanx It is assumed that junctioni cannot store matcual that is any finial arriving, at a junction Is shipped immediately to another location. 
+
+A maximal-flow problem can be modeled by a network The source, sink, and unctions are represented by nodes. while the branches represent the conduits through which material transported. 
+
+Associated with each node N and each branch NM emanating from N ts a nonnegati number. or capacity. representing the maximum amount of material that can be shipped through NI/ from N Example 13.3 Figure 112 is a network having A as the some, D QS the sink. and 8 and C asijunetions. 
+
+The mpacities of each branch for flows in the two directions are mdtait-ed near the ends of the branch- i.te that 7 unfrs on be sluppcd from A to C along 01C, but 0 unib can be shipped in the opposite dirrettotk. this tr) allows uk. if we iirish. to deline an orientation of AC In contrast flow!. along BC can move in either ion, with a oapacity of 5 ullitl‘ Cil her way 
+
+fig. 13-2 
+Maximal-flow problems arc solved by the following alg,onthim. 
+STEP 
+STEP 2 - STEP 3 
+STEP 4 STEP 3 
+Sisk 
+Find a path from source to sink that can accommodate a positive flow of maictial. If none exit go to Step 5. Determine the maximum how that can be shipped along this path and denoit6t by Decrease the direct capacity (i.e.. the capaaty In the direction of Bow of the k its) of each branch of this path by k and increase the reverse capacity by k Add k units tb the amount delivered to the sink. Go to Step 1 The maximal now is the amount of material delivered to the sink. 
+
+The shipping schedule is determined by comparing the original network with the final etwork. Any reduction in capacity signifies a shipment 
+(See Problems 116 and 117 
+
+\end{document}

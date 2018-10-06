@@ -1,0 +1,434 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{framed}
+\title{Prisoners Dilemma}
+\author{Kevin O'Brien}
+\date{September 2017}
+
+\begin{document}
+
+%- \maketitle
+
+
+
+
+CASE STUDY 8B 
+\subsection{THE CRITICAL PATH METHOD}
+Every large project consists of many activities. 
+The manager of such a project must make time estimates for these activities and must define the precedence relations among them.
+For example, on a construction project the wallboard cannot be installed before the electrical wiring. The walls cannot be painted before the wallboard is installed, and so on. 
+
+A digraph called an activity digraph can be used to model the times and precedence relations among activities. To consider an example, suppose you are opening 
+a new diner. The activities you must complete before opening are listed in Table 8.2. 
+\begin{verbatim}
+Activity 
+Description Immediate Predecessors 
+START 
+A 	Meet lawyer START 
+B 	Meet accountant 	A 
+C 	Sign lease 	A 
+D	 Hook up electricity 	B, C 
+E 	Buy stock 	B, C 
+F 	Hook up natural gas 	8, C 
+G 	Get state tax number 	B 
+H 	Get license	 G 
+I 	Set up equipment ID, 	E F 
+J 	City health inspection 	I 
+FINISH — H, i 
+\end{verbatim}
+
+\begin{tabular}{cccc}
+	&		&		&	Duration 	in Days 	\\ \hline
+	&		&		&	0		\\ \hline
+A 	&	Meet lawyer START 	&	Start	&	3		\\ \hline
+B 	&	Meet accountant 	&	A 	&	2		\\ \hline
+C 	&	Sign lease 	&	A 	&	4		\\ \hline
+D	&	 Hook up electricity 	&	B, C 	&	1		\\ \hline
+E 	&	Buy stock 	&	B, C 	&	3		\\ \hline
+F 	&	Hook up natural gas 	&	8, C 	&	1		\\ \hline
+G 	&	Get state tax number 	&	B 	&	1		\\ \hline
+H 	&	Get license	&	 G 	&	1		\\ \hline
+I 	&	Set up equipment ID, 	&	E F 	&	2		\\ \hline
+J 	&	City health inspection 	&	I 	&	1		\\ \hline
+Finish	&		&		&	0		\\ \hline
+\end{tabular}
+
+Table 8.2 
+
+
+%===============================================%
+
+% 454 CHAPTER 8 GRAPH THEORY 
+Problems and Projects 5. a. Run the program from Example 8.28 with the lists in exercise 2. b. Run your program again with the list 5, 2, 1, 7, 18, 11, 3. 4, 7, 9, 21, 18, 15, 13, 2, 6. (You will have to make a small adjustment in two lines of the program) 6. A ternary tree has a root with degree at most 3 and each other vertex with degree at most 4. a. Draw base ternary trees for n = 1, 2, ... , 15. b. How would the programs of this case study differ if heap sort were based on ternary trees? 
+
+
+The activities you must complete before opening are listed in Table 8.2. 
+Activity START Description - - • Immediate Predecessors Duration in Days 0 A Meet lawyer START 3 B Meet accountant A 2 C Sign lease A 4 0 Hook up electricity B, C 1 E Buy stock B, C 3 F Hook up natural gas B, C 1 G Get state tax number B 1 H Get license G 1 I Set up equipment D, E, F 2 J City health inspection I 1 FINISH H, j a 
+Table 8.2 
+%===============================================%
+9, 21, 18, 15, the program.: lx with degree were based on 
+a project must fence relations not be installed le wallboard is times and pre-•ou are opening .4:1 in Table 8.2. 
+Duration in Days 
+0 3 2 4 
+
+%- CASE STUDY 88 THE CRITICAL PATH METHOD 455 
+The activity digraph is constructed as follows. 
+\begin{itemize}
+    \item Each vertex represents an activity. If activity i is an immediate predecessor of activity j, then a directed edge is drawn from vertex i to vertex j. 
+    \item A vertex k is a successor of vertex i if there is an edge in the activity digraph directed from vertex i to vertex k. 
+    \item One vertex in the activity digraph, the START vertex, represents the start of the project and, thus, has no immediate pre-decessors. 
+    \itme One vertex in the activity digraph, the FINISH vertex, represents the finish of the project and, thus, has no successors. \item The duration of each activity is written beside its vertex. The activity digraph for opening the diner is shown in Figure 8.58. 
+\end{itemize}
+
+Figure 8.58 
+
+The questions we wish to answer are: 
+\begin{enumerate}
+\item What is the earliest we can finish this project? This time is called the project completion time. 
+\item What is the earliest time each activity can start and finish? 
+\item What is the latest time each activity can start without jeopardizing the project completion time? 
+\item Which activities are critical in the sense that any delay in their completion will 3 cause a delay in the entire project? 
+\end{enumerate}
+
+The technique we shall use to answer these questions is called the CPM, or \textbf{critical path method}, and was developed in 1957 by E. 1. du Pont de Nemours and Company 
+to control construction projects.
+\begin{itemize}
+    \item The first step in CPM is to identify the activities 2 involved in the project, their duration and each activity's immediate predecessors. 
+\item The second step is to construct an activity digraph for the project. We have completed 0 both of these steps. 
+\item The next step is to use the activity digraph to determine the earliest start and earliest finish times. 
+\item The earliest start time (EST) of an activity is the earliest time an activity can begin, assuming all preceding activities are completed as soon as possible. 
+\end{itemize}
+
+
+
+%===============================================%
+
+%- 456 CHAPTER 8 GRAPH THEORY 
+ 
+The earliest finish time (EFT) of an activity is the EST for the activity plus the activity' 
+duration. To find the EST and EFT for each activity we make a forward pass throug 
+the activity digraph and use the rules in Note 8.12. 
+\begin{framed}
+Note 8.12 Rules for Computing EST and EFT 
+\begin{itemize}
+\item 1. EST of start = 0 
+\item 2. EFT of a vertex = EST of the vertex + duration of the activity 
+\item 3. EST of a vertex = Maximum of the EFTs of all the vertex's immediate predecessors 
+\end{itemize}
+
+\end{framed}
+
+Applying Note 8.12 to our activity digraph, the EST of the start is 0. 
+
+\begin{itemize}
+\item The EFT 
+the start is, therefore, 0. The EST of A is the maximum of the EFTs of all its predecessors 
+Vertex A has only one predecessor, the start, so its EST is 0. The EFT of A is 0 + 3 = 3 
+\item The ESTs for B and C are 3 because each has only one predecessor, namely A. Set 
+Table 8.3, columns 3 and 4. The EFTs for B and C are 5 and 7, respectively. Vertex ❑ 
+has two immediate predecessors, namely B and C, with EFTs of 5 and 7. By rule 3 of 
+Note 8.12, the EST of D is 7, the maximum of 5 and 7. \item Continuing in this manner' 
+we complete columns 3 and 4 of the table.\item  Note that the EST of the finish, 13, equa 
+the EFT of the finish. 
+\end{itemize} This is the project completion time--the earliest the project c 
+possibly be completed (Note 8.13). 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+Activity & Duration & EST & EFT & LST & LFT 
+& Slack Time  \\ \hline 
+(1) & (2)  & (3) & (4) & (5) & (6) & (7) \\ \hline
+
+START & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+
+A & 3 & 0 & 3 & 0 & 3 & 0 \\ \hline 
+
+B & 2 & 3 & 5 & 5 & 7 & 2 \\ \hline
+
+C & 4 & 3 & 7 & 3 & 7 & 0 \\ \hline 
+
+D & 1 & 7 & 8 & 9 & 10 & 2 \\ \hline 
+
+E & 3 & 7 & 10 & 7 & 10 & 0 \\ \hline 
+
+F & 1 & 7 & 8 & 9 & 10 & 2 \\ \hline 
+
+G & 1 & 5 & 6 & 11 & 12 & 6 \\ \hline 
+
+H & 1 & 6 & 7 & 12 & 13 & 6 \\ \hline 
+
+I & 2 & 10 & 12 & 10 & 12 & 0 \\ \hline 
+
+J & 1 & 12 & 13 & 12 & 13 & 0 \\ \hline 
+
+FINISH & 0 & 13 & 13 & 13 & 13  & \\ \hline 
+\end{tabular}
+\end{center}
+Table 8.3 
+
+%=============================================%
+the activity's pass through 
+late 
+
+s0. The EFf of :s predecessors. A is 0 + 3 = 3. namely A. See .ively. Vertex 13 7. By rule 3 of in this manner, nish, 13, equals the project can 
+(7) Slack Time 
+0 0 2 0 2 0 2 6 6 0 0 0 
+
+%- CASE STUDY 8B THE CRITICAL PATH METHOD 457 
+
+\begin{framed}
+Note 8.13 The EFT of the finish vertex is the project completion time. 
+\end{framed}
+
+The next step in the CPM is to determine the latest start time and the latest finish time for each activity. The latest start time (LST) of an activity is the latest time the activity can start without causing delay in the project completion time. 
+
+The \textbf{latest finish time (LFT)} of an activity is the latest time an activity can be completed without causing delay in the project completion time. To compute the 1ST and LFT of each activity, we make a backward pass through the activity digraph and use the rules in Note 8.14. 
+
+\begin{framed}
+Note 8.14 Rules for Computing EST and EFT 
+\begin{enumerate}}
+    \item  LFT of finish = Project completion time 
+\item LST of a vertex = LFT of the vertex --duration of the activity 
+\item LFT of a vertex = Minimum of the LSTs of all the successors of the vertex 
+\end{enumerate}
+
+\end{framed}
+
+
+Applying Note 8.14 to our activity digraph, the LFT and 1ST of the finish vertex are 13. 
+Since vertices H and J have only one successor, the finish, their LFTs are the LST of the finish, namely 13. 
+Continuing backward in the activity digraph, we fill in columns 5 and 6 of Table 8.3. 
+ote, in particular, that vertex B has four successors, D, E, F and G, having LSTs of 9, 7, 9, and 11, respectively. 
+By rule 3 of Note 8.14, the LFT of B is 7. The final step in the CPM is to determine the slack time for each activity. 
+
+
+The slack time of an activity is the time we can delay the start of the activity beyond its EST with-out delaying the project completion time. 
+The slack time of an activity can be computed by either formula in Note 8.15. 
+\begin{framed} Note 8.15 Computing Slack Time The slack time of an activity can be computed by either of the following: 
+\begin{enumerate}
+    \item Slack time = 1ST - EST 
+\item Slack time = LFT — EFT 
+\end{enumerate}
+
+\end{framed}
+Column 7 of Table 8.3 contains the slack times for each activity in our example. 
+The slack time for activity F, for example, is 2. 
+This means that we can start F as early as day 7 or as late as day 9 without jeopardizing the project completion time. 
+That is, we have a 2-day leeway or slack in starting the activity. 
+
+%=============================================%
+%- 458 CHAPTER 8 GRAPH THEORY 
+Of particular interest are those activities having a slack time of 0. These activities 
+cannot be delayed beyond their EST without jeopardizing the project completion time. 
+An activity is called a \textbf{critical activity} if its slack time is 0. Note that, by definition, the 
+start and finish activities are always critical. The critical activities in our example are 
+\texttt{START, A, C, E, I, J, FINISH}. 
+
+A directed path from start to finish consisting of all critical 
+activities is called a critical path (there may be several critical paths). If any activity on 
+a critical path is delayed, the project will be delayed beyond its earliest completion 
+time. 
+Since the slack time for every critical activity is zero, we have Note 8.16. 
+Note 8.16 
+The project completion time equals the sum of the durations of the activities 
+on a critical path. 
+In our example, the sum of the durations on the critical path is 
+\[ 0 + 3 + 4 + 3 + 2 + 1 + 0 = 13. \]
+We summarize the steps in the CPM in Note 8.17. 
+\begin{framed}
+Note 8.17 Outline of the CPM 
+\begin{enumerate}
+    \item  Identify the activities, their durations, and their immediate predecessors. 
+\item Construct the activity digraph. 
+\item Using the activity digraph, compute the EST and EFT for each activity (S 
+Note 8.12). 
+\item  Using the activity digraph, compute the LST and LI=T for each activity ( 
+Note 8.14). 
+\item Compute the slack 4me for each activity (See Note 8.15). 
+\item Identify all critical activities and the critical paths.
+\end{enumerate}
+ 
+\end{framed}
+\subsection*{Program Evaluation and Review Technique}
+Remark A technique related to CPM is PERT (Program Evaluation and Review Technique). am 
+assumes the durations of a project's activities can be estimated with relative certaim.Y. 
+This is the case in training, construction, maintenance, and advertising projects. Other 
+types of projects, such as research projects and computer software development, con-
+sist of activities whose durations cannot be estimated with a great degree of certainty. 
+PERT considers each activity duration time as a random variable (see Chapter 4). Estimates are made of each activity's duration and an activity digraph is constructed. The 
+
+%==========================%' 
+
+%- CASE STUDY 8B THE CRITICAL PATH METHOD 459 
+
+EST, EFT, LST, LET, slack times, and critical paths are computed as described in study. 
+Probability calculations are then made to estimate the project completion time. 
+The interested reader is referred to Anderson (1982). 
+
+EXERCISES: CASE STUDY 88 
+
+1. For the data in Table 8.4. 
+
+\begin{enumerate}
+\item a. Construct the activity digraph. 
+\item b. For each activity, compute EST, EFT, LST, LFT, and slack time. 
+\item c. Find a critical path and the project completion time. 
+\end{enumerate}
+
+
+Activity Immediate Predecessors Duration START A C F FINISH 
+\begin{enumerate}
+\item For the activity digraph in a. Compute EST, EFT, LST, b. Find a critical path and 
+A A, B C, 8, C E, F 
+Table 8.4 
+Figure 8.59, LFT, and the slack time for each activity. the project completion time. 
+0 2 3 S 4 6 2 0 
+
+Figure 8.59 
+
+
+%==========================%
+%- Page 460
+
+\item  For the activity digraph in Figure 8.60,
+\begin{enumerate}[(a)]
+\item Compute EST, EFT, LST, UT, and the slack time for each activity. 
+\item Find a critical path and the project completion time. 
+Figure 8.60 
+\end{enumerate}
+%==========================%
+\item  An investment company prepares an annual report for its customers. This repoff4 
+be mailed to all customers, stockholders, and selected individuals and organization 
+The activities to be performed, their immediate predecessors, and dura 
+shown in Table 8.5. 
+\begin{enumerate}[(a)]
+\item  What is the fewest number of weeks in which the report can be prepared? 
+\item What are the critical activities? Find a critical path. 
+\end{enumerate}
+\begin{verbatim}
+imrnecgate 
+Activity Description Predecesso 
+START & — 
+A & Decide on a theme for the report  & START \\
+B & Have articles written for the report & A \\
+C & Get art work for the report & A \\
+D & Lay out the report & BFG \\
+E & Prepare mailing list \\
+F & Proofread and send first draft to the printer \\
+G & Make final changes and send to printer \\
+H & Get final report from printer and send to mailroom \\
+I & Send out report \\
+FINISH & & \\
+\end{verbatim}
+Table 85 
+
+\end{enumerate}
+%==========================%
+%- Page 460
+
+\subsection{Question 3.} For the activity digraph in Figure 8.60, a. Compute EST, EFT, LST, UT, and the slack time for each activity. b. Find a critical path and the project completion time. 
+Figure 8.60 
+
+\subsection{Question 4.}  An investment company prepares an annual report for its customers. This repoff4 be mailed to all customers, stockholders, and selected individuals and organization The activities to be performed, their immediate predecessors, and dura shown in Table 8.5. a. What is the fewest number of weeks in which the report can be prepar‘d? b. What are the critical activities? Find a critical path. 
+
+I 
+\begin{verbatim}
+imrnecgate 
+Activity Description Predecesso 
+START — 
+A Decide on a theme for the report START 
+B Have articles written for the report A 
+C Get art work for the report A 
+D Lay out the report BFG 
+E Prepare mailing list 
+F Proofread and send first draft to the printer Make final changes and send to printer 
+H Get final report from printer and send to mailroom 
+Send out report 
+FINISH 
+
+Table 85 
+\end{verbatim}
+%==========================%
+%- Page 460
+
+
+%- CASE STUDY 88 THE CRITICAL PATH METHOD 
+%- 461 
+5. Not satisfied with the quality of new housing you decide to be your own contractor and build your new home yourself by subcontracting the various phases of the pro-ject.The activities you must perform, their immediate predecessors and durations are contained in Table 8.6. a. Find the minimum number of weeks for the completion of theroect. b. Find the critical activities and a critical path. p j c. Develop a schedule to tell when contractors should arrive at the site to do their work. 
+\begin{verbatim}
+    
+\end{verbatim}
+Activity START A B C D F C H K L FINISH Description Purchase land 
+Clear land 
+Build foundation 
+Build frame and exterior walls 
+Rough electrical wiring 
+Rough plumbing 
+Finish interior walls 
+Finish exterior 
+Finish electric and plumbing 
+Paint interior Landscape Carpet and furnish 
+Immediate Predecessors START A C E, F D C K,L 
+Duration in Weeks 0 2 1 1 2 1 2 1 2 1 2 2 0 
+Table 8.6 
+Problems and Projects 6. In an activity digraph, the time-length of a to finish is de-directed fined as the sum of the durations of the activities on the path. path from start a. 
+
+Prove Theorem 8.16. 
+Theorem 8.16 The time-length of a critical path in an activity digraph is the maxim length of all the directed paths from START to FINISH. um time- 
+
+%=============================%
+%- CASE STUDY 88 THE CRITICAL PATH METHOD 
+%- Page 461 
+\subsection{ Question 5. }
+Not satisfied with the quality of new housing you decide to be your own contractor 
+and build your new home yourself by subcontracting the various phases of the pro-ject.The activities you must perform, their immediate predecessors and durations 
+are contained in Table 8.6. 
+\begin{itemize}
+\item a. Find the minimum number of weeks for the completion of theroect. 
+\item b. Find the critical activities and a critical path. p j 
+\item c. Develop a schedule to tell when contractors should arrive at the site to do their 
+work. 
+\end{itemize}
+Activity START A B C D F C H K L FINISH Description Purchase land Clear land Build foundation Build frame and exterior walls Rough electrical wiring Rough plumbing Finish interior walls Finish exterior Finish electric and plumbing Paint interior Landscape Carpet and furnish Immediate Predecessors START A C E, F D C K,L Duration in Weeks 0 2 1 1 2 1 2 1 2 1 2 2 0 Table 8.6 
+Problems and Projects 
+\subsection{Question 6.} In an activity digraph, the time-length of a to finish is de-
+directed 
+fined as the sum of the durations of the activities on the path. 
+path from start 
+a. Prove Theorem 8.16. 
+\begin{framed}
+Theorem 8.16 
+The time-length of a critical path in an activity digraph is the maxim 
+length of all the directed paths from START to FINISH. um time- 
+\end{framed}
+
+%=============================%
+
+% - 462 CHAPTER 8 GRAPH THEORY 
+
+b. Theorem 8.16 gives another method for finding the critical path in an activity digraph. List all directed paths from START to FINISH and find their time-lengths. 
+
+A critical path is a path of maximum time-length. Use this method to find a critical path in the activity digraph of Figure 8.61. 
+
+Figure 8.61 
+c. Explain why this technique for finding a critical path is not suitable for large digraphs. 
+
+\subsection{Question 7.} a. Explain why an activity digraph cannot contain a directed cycle. 
+b. Explain why an activity digraph cannot contain the digraph of Figure 8.62. 
+
+
+\section{REFERENCES} 
+Figure 8.62 
+Anderson, M. Q. Quantitative Management Decision Making: With Models ani Applications. Monterey, Calif.: Brooks:Cole, 1982. Behzad, M., Chartrand, G., and Lesniak-Foster, L. Graphs and Digraphs. Belmonr, Calif.: Wadsworth, 1979. Belford, G. G., and Liu, C. L. Pascal. New York: McGraw-Hill, 1984. Biggs, N. L., Lloyd, E. K., and Wilson, R. J. Graph Theory 1736- 1936. 0 xfoall Clarendon, 1976. 
+
+
+%===============================%
+%- 463
+
+
+suitable for large 
+cle. 4 Figure 8.62. 
+With Models arid Digraphs. Belmont,. 11, 1984. 736. 1936. Odor& 
+REFERENCES 463 Chartrand, G. Graphs as Mathematical Models. Boston: Prindle, Weber & Schmidt, 1977. Harary, F. Graph Theory. Reading, Mass.: Addison-Wesley, 1969. Scheid, F. Computers and Programming. New York: McGraw-Hill, 1982. Wagner, K. Bemerkungen zum vierfarben problem. Jber. Deutsch. Math. Verein. 46 (1936): 21-22. Wilson, R. J. Introduction to Graph Theory. 2d ed. New York: Academic Press, 1979. 
+
+
+\end{document}

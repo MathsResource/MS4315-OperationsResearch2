@@ -1,0 +1,190 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+\begin{document}
+
+%==========================================%
+% CHAP 131 
+% NETWORK ANALYSIS 219 
+\subsection{FINDING A POSMVE-FLOW PATH} The difficult aspect of the maxinuil-flow algorithm is Step 1 -identifying a path from source to sink with positive flow capacity. To discover such a path, first connect to the source all nodes that can be reached by a single brunch having positive flow capacity in the forward direction (the direction out of the source). Connect these nodes to all new nodes that can be reached by single branches having positive forward capacities. Continue ibis process until either the sink is reached --in which ease an appropriate path has been identified • ,or no new nodes can be reached from existing ones and the sink has not been reached in which case no appropriate path exists. (See Problem 13.5.) 
+
+\subsection{Solved Problems}
+\begin{enumerate}
+\item 13.1 Solve the minimum span problem for the network given in Fig. 13.3, The numbers on the branches represent the costs of including the branches in the final network. 
+
+13-3 
+We arbitrarily choose A as our mating node and consider all branches incident *nit; they are AE, AR, AD, aad AC, with costs 10, 2, 1. and 4, respectively. Since AD is the cheapest. we add this branch to the solution, as shown in rig. 13-4(0). Node; A and D are now connected. We nem consider an branches incident on either .4 or D that connect to other Dodos Such branches are At AB. AC, DB, Dg, DF, De, and DC, grid) costs In, 2. 4, 1.7. 10„ 7, and 4. respectively Since DB is the cheapest to include, we adjoin it to Fig- 13.4(o) and obtain Fig. 13-40). The connected nodes are now A. D. and 0. 
+
+We nest consider all branch incident on A, l. or 0 that connect to tuba nodes. The are AE. AC, DE, Dr, DO, and DC, with costs 10, 4, 7, 10, 7, and 4 The cheapest branch of interest is either AC or DC We arbitrarily select DC And adjoin it to Fig. 134(b) to obtain Ftg, 13-4(c). Continuing in this manna, we obtain sequentially Figs. 11.4(d) through 13.4(f) Figure 13-4(f) contains all the nodes. hence it is a minimal-span network. The minimum cost tot connecting the network is 
+s 1 +4+3+ 3 +527 17 
+\item  The National Park Service plans to develop a wilderness area for tourism. Four location in the area ate designated for automobile access. These sites, and the distances (in miles) between them, are listed in Table 13-1. To inflict the least herrn on the environment, the Park Service wants to minimize the milts of roadway required to provide the desired accessibility. Determine how roads should be built to achieve this objective-
+
+
+220 
+
+la) 
+%% ================================== NETWORt ANALYSIS 
+
+[0 AP 13 
+0 
+
+4d) 
+0 
+
+tb 1 
+O 
+
+ir 1 
+O 
+
+1,%4 
+'LBW MI 
+L1) 
+Pork Fill:3We Wild Falk MAID* Rock Surtvi Point The MeadPark Eriiruncr 71 19.5 19,1 25.7 IA'Llii Palk 71 K3 16.2 13.2 Ntiqcstic Rock 19,5 8.3 18.1 1.4,2 Sunset Point 19,1 16.2 18.1 . 17' The Nileado* 25.7 U2 5.2 17 
+
+
+%===========================%
+%% CHAP 131 
+%5 NETWORK ANALYSIS 
+
+Fitt. 13-5 
+
+Fig, 13-6 
+221 
+This Is is minimuni•span problem. The nodes are the four locations to be developed and the park entrance. while the proposed branches are the possible roadways linking the sleet The costs are the mileages. The complete network is shown in rig. 114, where each site is represented by the rust kiter of its name We arbitrarily select Park Entrance as the Initial node The its of thc brunches incident on this nude arc listed in the lira row of Table 13-1_ Since the lowest cost Is 7.1. we add the branch from Park Entrance to Wild Falls to the network We nest consider all branches joining either Park Entrance or Wild Falls to a new site, These are the branches from Park Entrance to Majestic Rock, Sunset Point, and The Meadow, as well as those from Wild Falls to the same three sites Of these. the cheapest branch Is the en; from Wild Falls to Majestk Rock: so we adjoin it to the network. We next consider all brandies to either Sunset Palm or The Meadow from either Park Entrance, Wild Falls, or Mdestic Rack. 
+
+Of these. the branch from Mail:sue Rock to The Meadow has the smallest cost so it too Is added to the network, At this stage, the only unconnected sae is Sunset Point. The cbeapea branch linking Sunset Point to any other site is the one from Wild Falls. Adjoining thh branch to the network, we arrive 4t Fig. 13-6, having a minimal cost of 
+•J-• 7.1 + 5.2 1624a 36-8 mi 
+\item  An individual who lives in Ridgewood, New Jersey. and works in Whippany. New Jersey, seeks a air route that will minimize the morning driving time. This person has recorded driving times (in minutes) along major highways between different intermediate cities these data are shown in Table 13.2. A blank entry signifies that no :Tudor highway directly links the corresponding points. Determine the best commuting route for this individual. 
+Table 134 
+. Ridgewood Orange Troy Hills Parsippany , Whippany Ridgewood  18 32 Chrton 18 • • 12 2Il Orange 12 i 17 32 _,. Troy Hills 32 28 17 ... 4 17 Parsippany • • • 4 • 11 Whippany . 32 17 11 
+
+%=============================%
+
+% 222 
+% NETWORK ANALYSIS [CHAP 13 
+This situation may be modeled as it shortest route problem. The nodes are the cities, the branches are the connecting highways, and the costs associated with the branches are the trawl tunes. 
+
+The sourer is Ridgewood, tact the sink n Whippan) STEP The master list rx showy tlk Fig. 13.7m, with each city represented by the first letter an its name Oranches CR and TR are absent under C and T, respecttsely these appear, its RC and RT. under the source only Similarly, no branches are fisted with the sink as lint node, STEP We star the source node, R. and assign rt the •zlue O. 
+
+%==============================================================%
+
+The cheapest branch leaving R is RC. so tee star C and assign it the value 18. the cost of RC. We circle branch RC and then delete horn 134(a) all other branches whose second rinde is C. cc. Or and TC The race Mallet list is Fig. 13-7(b)_ RC IS CO 12 OC 12 Tr 4 PT 4 RT Crzn OT 17 TW 17 PW 11 OW 32 TO 17 TC' 25 
+R' 4O) C' 1181 0 CO 12 Or 17 7P 4 PT 4 RT 32 CT 2R OW 32 TW 17 PW 11 70 17 (b) 
+
+R. (0) 
+OM Os EV) 
+O7' 17 28 OW 32 (e) V 101 C" 118) 0. OW 32 (d) 
+R. (U) 
+
+IF 1 PT 4 TW 17 PW 
+r (32) P w TI' 4 Pei'' 11 7W 17 
+C' (18) 0° (0) r (321 
+V (0) 
+
+Ow 32 Grp Pw 11 TW 
+C" (IS) Cos t3,1 r* 432) P. 06) W" (47) 
+137 
+
+%==========================%
+% CHAP, 13] NETWORK ANALYSIS 223 
+
+STEP 4 The starred nodes are R and C The sums of lamest are 0 32 32 under R, obtained by adding the value of R to the cost of RT, and 18 + 12 ci 30 under C. obtained by adding the value of C to the coat of CO Since 30 is the sear SUM we Mk CO. star O. assign 0 the value 30, and delve from Fig, 134(0 ail other brunches having 0 as second node. Le.. 70 The result Is rig 13-7(4 STEP 4 The starred nodes ore R. C. and O. The sums of interest are 0 + 32 32 under R, 18 + 28 az. 46 under C. and 30 17 47 under O. 
+
+
+The smallest sum is 32 hence we code Ar. Star r. asap 74- the value 32, and delete from Fig. 134(4 all other branches Avith second node T The result is Fig. 13-7(d) STEP 4 The only starred nodes having uncalled brunches under them in the current master Ito. Fig. 13,4(d), are 0 and For thew node*, the sums of Untitii are 30 + 32 la 62 and 32 + 4 11• 36. respectively 
+
+Therefore. we circle ?P. star P, assign P the value 36, and delete all other branches with second node P. of which there are none The new master lift is Fig. 13-7(0, STEP 4 The only starred nodes having urieireted branches under than in the new master list are 0. r iusd P The runts of interest are, respectively, 30 + 32 - 62, 32 + 17 49, and 36 1- 11 •■• 47 Singe 47 ii the unallest. we circle PIE, star 1r (the sink). assign 1$' the value 47, and delete from Fig. 13.7(e) all other branches having Was second node The result is Fig. 13-7(1), 
+
+STEP S The minimum driving time from Ridgewood to Whippany is :41 47 nuts To identify the optimal path, we search Fig 13-7(f) for a circled branch having If' as second node: tt PIS' Nest we search for a circled branch having Pas second nodc it is TP. men we starch for a aided branch having T as second oak it is ler. Since R is the source, the desired path is (RTTP,Pill 
+
+\item  A manufacturing concern has been awarded a contract to produce casings. The contract is for 4 years and it is not expected to be renewed. The production process requires a specialized machine which the concern does not have. The concern can buy the machine. maintain it for the 4 years of the contract. and then sell it for scrap value) or it can replace the machine at the end of tiny given year by a new model. 
+
+New models require leas maintenance than older ones. Estimated net operating cost (purchase price plus maintenance minus trade-in) for buying a machine in the beginning of year 1 and trading it in at the beginning of year J is given In Table 13.3. with all figures expressed in thousand-dollar units. 
+Table 13:3 
+1 2 3 4 5 F ehip " gel - 12 19 33 49 • - • - - 14 23 33 • - - . - 16 26 .... ..• • 13 
+Determine a replacement policy that will minimize the total operating cost for the machine over the life of the contract. 
+This problem can be solved by dynamic programming alts natively. It can be modeled as a shortest-route problem on an oriented network. We let nodes represent the beginnings of the 'eats of the contract, and Yt the beginning of the Ofth sat An oriented branch from ) to ) sigmaes purchase of a machine at the beginning of year I and trade-in or scrapping of the machine at the beginning of year j 7e cost associated with each branch is the net operating cost. The network Is shown in Fig 13-3 
+
+%========================================%
+%CHAR 13] NFTYliORK ANALYSES 225 
+The master list for this oriented network is given in Fig. 13-9(a). Applying the cheapest•path algorithm to it. we obtain successively Figs 13.9(h) through 13.9fek From Fig. 13.90, 
+45 (thousand dollars) 
+The optimal path rs found V, Yi. Y. This path represenw the policy of buying a machine at the beginning of year 1, trading it in for a new machine at the beginning of year 3. and finally scrapping the 2.year-old machme at the beginning of year 5 
+\item  In Fig. 13-10, identify a path from 41)1,1rec A to sink G that can accommodate posititc flow, 
+
+Fig. 13-10 We begin with the source and find All nodes 'hut Call be reached dereeily from A Along branches allowing positive flow out al A They arc if. E. and F. us indicated in Fig. 13-11(a). 
+
+Next we consider these three new nodes Autuwveiy Focusing on B flint. we identify all nodes nor shown in Fig. 13.11(a) that can be reached from B along branches allowing positise flow out of B There arc none such Focusing on E. we see that A, R. and C can be reached along branches Aiming positive flow out of E.; but since .4 and 8 alreudy appear in Fig. 13-11(n). only C n added From F. nodes A and D can be reached along branches allowing positive flow; but since .1 already appears in Fig. 13.11(a), we add only node D. The result is Fig. 13-11(h), We now consider nodes C and D suetessively. 
+
+Focusing on C first, we determine that A, B, E. and all can be reached directly from C along branches with positive flow out of C. Since each of these nudes already appears in Fig. 13-11(h), we make no adjustments to 41 and olinsider nest node D. From 0, we can reach A and G along branches allowing positive flow Slue only 6 is new, we adjoin it to Fig. 13-11(h), obtaining Fig. 13-11(4 It follows from this last figure that IA!. FD. DO; is a path from source to sink that can accommodate a positite flow (or 1 unit) 
+\item  Determine the maximal flow of nutterial that can be scat from source A to sink 11 through the network shown in Fig, ill_ One path from source to sink is the branch AD linking thew two nodes directly. h can accommodate X units. Shipping this attionnt„ we deliver 8 unh to Lk decrease the wadi) of AD by 8, and increase the capacity of DA by g, The resulting network is shown in lit 13-12(a). 
+
+Another path from source to sink that can accommodate positive flow is I AC. CB. BD!. The animurn amount of material that can be sent along this path is 4 units. the capacity of RD. Making such a shipment. we increase the supply at D by 4 units to 8 -# 4 12 Simultaneously. we decrease the capacities of AC, CB, and BD by 4 units and increase by this same amount the capacities of CA. 8C, and PR. Figure 13.12(44 then becomes Fig. 13.120) 
+\end{enumerate}
+%============================================%
+
+% 22► NETWORK ANALYSIS 
+[CHAP 13 
+
+(a) 
+
+It) 
+Fla. 13-11 
+
+is 1 
+(C) 
+
+(b) 
+13.12 
+(d) 
+\end{document}

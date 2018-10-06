@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{multicol}
+%\usepackage[paperwidth=21cm, paperheight=29.8cm]{geometry}
+%\usepackage[angle=0,scale=1,color=black,hshift=-0.4cm,vshift=15cm]{background}
+%\usepackage{multirow}
+\usepackage{enumerate}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{eurosym}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+
+%\input def.tex
+%\input dsdef.tex
+%\input rgb.tex
+
+%\newcommand \la{\lambda}
+%\newcommand \al{a}
+%\newcommand \be{b}
+\newcommand \x{\overline{x}}
+\newcommand \y{\overline{y}}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{Operations Research 2} \rhead{Game Theory : Duopolies}
+\chead{MS4315}
+%\input{tcilatex}
+
+\begin{document}
+
+\section*{Bertrand Model of Duopolies}
+The Cournot and Stackelberg duopoly theories focus on firms competing through the quantity of output they produce. The Bertrand duopoly model examines \textbf{\textit{price competition}} among firms that produce differentiated but highly substitutable products. Each firm’s quantity demanded is a function of not only the price it charges but also the price charged by its rival. Coca-Cola and Pepsi are examples of Bertrand duopolists.\\
+
+The quantity demanded for Firm 1 and Firm 2 is a function of both the price the firm establishes and the price established by their rival because the goods are highly substitutable. Thus, the firms have the following demand curves relating quantity demanded to its price and its rival’s price
+
+
+\begin{description}
+\item[Firm 1] $q_1 = 400 - 4\times p_1  + 2 \times p_2$ 
+\item[Firm 2] $q_2 = 240 - 3\times p_2  + 1.5 \times p_1$ 
+\end{description}
+
+To simplify the analysis, assume that both firms have zero marginal cost for their products. Profit maximization then requires each firm to choose a price that maximizes its total revenue.
+
+\subsection*{Reaction Functions}
+Derive the Bertrand reaction functions for each firm with the following steps:
+
+
+
+\begin{enumerate}
+\item 
+
+Firm 1’s total revenue equals price times quantity, so
+\[TR_{1} = p_1 \times q_1 = p_1[400 - (4\times p_1)  + (2 \times p_2)]\]
+\[TR_{1} = 400p_1 - 4\;p_1^2  + 2\;p_1 p_2\]
+
+\item Taking the derivative of Firm 1’s total revenue with respect to the price it charges yields
+\[MR_{1} = \frac{\partial TR_{1}}{\partial p_1} = 400 - 8\;p_1  + 2 p_2\]
+
+\item Setting the equation in Step 2 equal to zero (i.e. letting $MC=0$ and solving it for $p_1$ generates Firm 1’s reaction function.
+\item Setting the derivative of total revenue equal to zero maximizes total revenue, which also maximizes profit given marginal cost equals zero.
+\[p_1 = 50 + 0.25p_2\]
+
+\item Repeat these steps for Firm 2 to derive its reaction function.
+\[p_2 = 40+ 0.25p_1\]
+
+\item Substitute Firm 2’s reaction function into Firm 1’s reaction to determine $p_1$.
+Substitute $p_1$ equals 64 in Firm 2’s reaction function to determine $p_2$.
+
+\item The Bertrand duopoly model indicates that Firm 1 maximizes profit by charging \$64, and Firm 2 maximizes profit by charging \$56. 
+% Note that both the horizontal and vertical axes on the illustration measure price and not quantity (as in the Cournot and Stackelberg models).
+\end{enumerate}
+
+
+\noindent \textbf{Important:} With the Bertrand model, you focus on what price is selected to maximize your profits. In the Cournot and Stackelberg duopoly models, the focus is on quantity.
+\end{document}
